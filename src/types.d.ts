@@ -1,5 +1,5 @@
 export interface PostType {
-    id: string
+    _id: string
     message: string
     author: string
     datetime: date

@@ -1,15 +1,20 @@
 import React from 'react';
 import {Card} from "react-bootstrap";
 
-const Post: React.FC = () => {
+interface Props {
+    author: string
+    message: string
+    date: string
+}
+const Post: React.FC<Props> = ({author, message, date}) => {
     return (
-        <Card>
-            <Card.Header>Author (prop)</Card.Header>
+        <Card className='my-3 p-0'>
+            <Card.Header>Author: {author}</Card.Header>
             <Card.Body>
                 <div className='d-flex justify-content-between align-items-center'>
-                    <Card.Title>Message (prop)</Card.Title>
+                    <Card.Title>Message: {message}</Card.Title>
                     <Card.Text>
-                        Date(prop).
+                        {date}
                     </Card.Text>
                 </div>
             </Card.Body>
