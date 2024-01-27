@@ -16,7 +16,7 @@ const Post: React.FC<Props> = ({author, message, date}) => {
 
     return (
         <Card className='my-3 p-0'>
-            <Card.Header>
+            <Card.Header className='d-flex justify-content-between'>
                 <div>Author: {author}</div>
                 <div>{day < 10 ? `0${day}` : day}/{month < 10 ? `0${month}` : month}/{year}</div>
             </Card.Header>

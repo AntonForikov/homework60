@@ -4,3 +4,8 @@ export interface PostType {
     author: string
     datetime: date
 }
+
+export interface Message {
+    message: string
+    author: string
+}

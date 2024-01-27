@@ -4,6 +4,7 @@ import axios from 'axios';
 import {PostType} from "./types";
 import Post from "./components/Post/Post";
 import Loader from "./components/Loader/Loader";
+import SendMsg from "./components/SendMsg/SendMsg";
 
 function App() {
   const [posts, setPosts] = useState<PostType[]>([]);
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <>
+      <SendMsg></SendMsg>
       {loader ? <Loader/> : null}
       {posts.map((post, index) => {
         return <Post
