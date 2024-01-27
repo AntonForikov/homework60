@@ -11,11 +11,10 @@ function App() {
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
-    // const interval = setInterval(() => {
-    //   console.log('3 seconds');
-    //   // void res();
-    // }, 3000);
-    void res();
+    setInterval(() => {
+      console.log('3 seconds interval');
+      void res();
+    }, 3000);
   }, []);
 
   const res = async () => {
@@ -28,7 +27,7 @@ function App() {
       // const targetResponse = await axios.get(`http://146.185.154.90:8000/messages?datetime=${lastDatetime}`);
       // const targetResponseData = targetResponse.data;
       const reversedData = responseData.reverse();
-      setPosts((prevState) => [...prevState, ...reversedData]);
+      setPosts([...reversedData]);
       setLoader(false);
     } catch {
       alert('Please check requested URL.');

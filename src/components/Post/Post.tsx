@@ -14,6 +14,7 @@ const Post: React.FC<Props> = React.memo(({author, message, date}) => {
     const day = dirtyDate.getDate();
     const hour = dirtyDate.getHours();
     const minutes = dirtyDate.getMinutes();
+    console.log('[post] mounted');
 
     return (
         <Card className='my-3 p-0'>
@@ -33,6 +34,6 @@ const Post: React.FC<Props> = React.memo(({author, message, date}) => {
             </Card.Body>
         </Card>
     );
-}, (prev, cur) => prev.id !== cur.id);
+}, (prev, cur) => prev.id === cur.id);
 
 export default Post;
