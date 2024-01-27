@@ -2,15 +2,16 @@ import React from 'react';
 import {Card} from "react-bootstrap";
 
 interface Props {
+    id: string
     author: string
     message: string
     date: string
 }
-const Post: React.FC<Props> = ({author, message, date}) => {
+const Post: React.FC<Props> = React.memo(({author, message, date}) => {
     const dirtyDate = new Date(date);
     const year = dirtyDate.getFullYear();
     const month = dirtyDate.getMonth() + 1;
-    const day = dirtyDate.getDay();
+    const day = dirtyDate.getDate();
     const hour = dirtyDate.getHours();
     const minutes = dirtyDate.getMinutes();
 
@@ -32,6 +33,6 @@ const Post: React.FC<Props> = ({author, message, date}) => {
             </Card.Body>
         </Card>
     );
-};
+}, (prev, cur) => prev.id !== cur.id);
 
 export default Post;

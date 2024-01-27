@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Button, Col, Form, Row} from "react-bootstrap";
 import {Message} from "../../types";
+import axios from "axios";
 
 const SendMsg: React.FC = () => {
     const [message, setMessage] = useState<Message>({message: '', author: ''});
@@ -19,10 +20,7 @@ const SendMsg: React.FC = () => {
             const data = new URLSearchParams();
             data.set('message', msg);
             data.set('author', author);
-            await fetch(url, {
-                method: 'post',
-                body: data,
-            });
+            await axios.post(url, data);
         } catch {
             alert('Please check requested URL.');
         }
