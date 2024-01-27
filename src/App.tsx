@@ -31,9 +31,9 @@ function App() {
     <>
       <SendMsg></SendMsg>
       {loader ? <Loader/> : null}
-      {posts.map((post, index) => {
+      {posts.map((post) => {
         return <Post
-            key={`post-${index}`}
+            key={post._id}
             author={post.author}
             message={post.message}
             date={post.datetime}
