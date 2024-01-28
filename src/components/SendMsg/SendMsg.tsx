@@ -3,7 +3,11 @@ import {Button, Col, Form, Row} from "react-bootstrap";
 import {Message} from "../../types";
 import axios from "axios";
 
-const SendMsg: React.FC = () => {
+interface Props {
+    spinner: (loader: boolean) => void
+    bool: boolean
+}
+const SendMsg: React.FC<Props> = ({spinner, bool}) => {
     const [message, setMessage] = useState<Message>({message: '', author: ''});
     const changeMessage = (e: React.ChangeEvent<HTMLInputElement>) => {
         setMessage(prevState => ({
@@ -14,6 +18,7 @@ const SendMsg: React.FC = () => {
 
     const request = async () => {
         try {
+            spinner(!bool);
             const url = 'http://146.185.154.90:8000/messages';
             const msg = message.message;
             const author = message.author;
@@ -21,6 +26,7 @@ const SendMsg: React.FC = () => {
             data.set('message', msg);
             data.set('author', author);
             await axios.post(url, data);
+            spinner(!bool);
         } catch {
             alert('Please check requested URL.');
         }

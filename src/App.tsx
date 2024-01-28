@@ -36,11 +36,12 @@ function App() {
     const res = await axios.get(url);
     const response = res.data;
     setPosts([...response.reverse()]);
+    setLoader(false);
   };
 
   return (
     <>
-      <SendMsg></SendMsg>
+      <SendMsg spinner={setLoader} bool={loader} />
       {loader ? <Loader/> : null}
       {posts.length ?
           posts.map((post) => {
