@@ -14,7 +14,6 @@ const Post: React.FC<Props> = React.memo(({author, message, date}) => {
     const day = dirtyDate.getDate();
     const hour = dirtyDate.getHours();
     const minutes = dirtyDate.getMinutes();
-    console.log('[post] mounted');
 
     return (
         <Card className='my-3 p-0'>

@@ -29,8 +29,7 @@ const SendMsg: React.FC = () => {
     const onFormSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (message.message && message.author) {
-            console.log(message);
-            request();
+            void request();
             setMessage({message: '', author: ''});
         } else {
             alert("Please enter username and message before send it.");
